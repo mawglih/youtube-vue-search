@@ -30,10 +30,10 @@ export default {
     created() {
         searchBus.$on('getVideos', (data) => {
             this.selectedVideo = data[0];
-            this.videoId= this.selectedVideo.id;
+            this.videoId = this.selectedVideo.id;
         });
     },
-    changed() {
+    mounted() {
         searchBus.$on('SelectedVideo', (data) => {
             this.selectedVideo = data;
             this.videoId= this.selectedVideo.id;

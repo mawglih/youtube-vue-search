@@ -1,9 +1,9 @@
 <template>
     <div>
-        <li class="list-group-item">
+        <li class="list-group-item" @click="onSelect">
             
 
-            <div @click="onSelect">
+            <div >
                 <div class="video-list media">
                 <img class="align-self-start mr-3" :src="video.url" :alt="video.title" />
                 <div class="media-body">
@@ -28,8 +28,9 @@ export default {
     },
     props: ['video'],
     methods: {
-        onSelect: () => {
+        onSelect() {
             this.selectedVideo = this.video;
+            console.log('item: ', this.selectedVideo);
             searchBus.$emit('SelectedVideo', this.selectedVideo);
         }
     }
